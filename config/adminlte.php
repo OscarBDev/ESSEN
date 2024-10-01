@@ -310,18 +310,31 @@ return [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
         ],
+        //configuraciones de mis tablas
+        ['header' => 'Configuraciones'],
         [
-            'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
+            'text' => 'Usuarios',
+            'icon' => 'fas fa-fw fa-user',
+            'url' => '/usuarios',
         ],
         [
-            'text' => 'pages',
-            'url' => 'admin/pages',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
-            'label_color' => 'success',
+            'text' => 'Roles',
+            'icon' => 'fas fa-solid fa-dice',
+            'url' => '/roles',
         ],
+        //aqui las tablas
+        ['header' => 'Tablas de datos'],
+        [
+            'text' => 'Categorias',
+            'icon' => 'fas fa-list',
+            'url' => '/categorias',
+        ],
+        [
+            'text' => 'Productos',
+            'icon' => 'fas fa-utensils',
+            'url' => '/productos',
+        ],
+        //end
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
