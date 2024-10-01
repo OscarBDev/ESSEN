@@ -41,7 +41,7 @@ class CategoriasController extends Controller
     {
         //cuando precionemos en guardar
         $request->validate([
-            'nombre'=>'required'
+            'nombre'=>'required|string'
         ]);
         Categoria::create($request->all());
         return redirect()->route('categorias.index');

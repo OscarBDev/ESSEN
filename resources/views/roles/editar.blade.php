@@ -24,8 +24,9 @@
 <!-- fin de las alertas -->
 
 <!-- creamos el formulario -->
-<form method="PATCH" action="{{ route('roles.update', $role->id) }}">
+<form method="POST" action="{{ route('roles.update', $role->id) }}">
     @csrf
+    @method('PUT')
 
     <div class="mb-3">
         <label for="name">Nombre del Rol:</label>

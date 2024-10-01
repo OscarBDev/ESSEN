@@ -12,7 +12,9 @@
 <p>Panel de Usuarios</p>
 
 <!-- boton para agreagar un nuevo usuario -->
+@can('crear-usuario')
 <a class="btn btn-warning" href="{{ route('usuarios.create') }}">Nuevo</a>
+@endcan
 <!-- tabla de los usuarios -->
 <div class="cotainer">
     <div class="row">
@@ -41,7 +43,11 @@
                     </td>
                     <!-- celda para los botones -->
                     <td>
+                        @can('editar-usuario')
                         <a class="btn btn-info" href="{{ route('usuarios.edit', $usuario->id) }}">Editar</a>
+                        @endcan
+
+                        @can('borrar-usuario')
 
                         {!! html()->form('DELETE', route('usuarios.destroy', $usuario->id))
                         ->style('display: inline')
@@ -52,6 +58,8 @@
                         ->class('btn btn-danger') !!}
 
                         {!! html()->form()->close() !!}
+
+                        @endcan
                     </td>
                 </tr>
                 @endforeach
