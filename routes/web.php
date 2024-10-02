@@ -21,10 +21,66 @@ Route::middleware([
     })->name('dashboard');
 });
 //spatie rutas
-Route::group(['middleware' => ['auth']], function () {
-    Route::resource('roles', RolController::class);
-    Route::resource('usuarios', UsuarioController::class);
-    //rutas de los controladores segun el digrama entidad relacion
-    Route::resource('categorias', CategoriasController::class);
-    Route::resource('productos', ProductosController::class);
+
+//rutas de roles
+Route::group(['middleware' => ['role_or_permission:ver-rol']], function () {
+    Route::resource('roles', RolController::class)
+        ->only(['index']);
+});
+Route::group(['middleware' => ['role_or_permission:crear-rol']], function () {
+    Route::resource('roles', RolController::class)
+        ->only(['create', 'store']);
+});
+Route::group(['middleware' => ['role_or_permission:editar-rol']], function () {
+    Route::resource('roles', RolController::class)
+        ->only(['edit', 'update']);
+});
+Route::group(['middleware' => ['role_or_permission:borrar-rol']], function () {
+    Route::resource('roles', RolController::class)
+        ->only(['destroy']);
+});
+
+//rutas de usuarios
+Route::group(['middleware' => ['role_or_permission:ver-usuario']], function () {
+    Route::resource('usuarios', UsuarioController::class)
+        ->only(['index']);
+});
+Route::group(['middleware' => ['role_or_permission:crear-usuario']], function () {
+    Route::resource('usuarios', UsuarioController::class)
+        ->only(['create', 'store']);
+});
+Route::group(['middleware' => ['role_or_permission:editar-usuario']], function () {
+    Route::resource('usuarios', UsuarioController::class)
+        ->only(['edit', 'update']);
+});
+Route::group(['middleware' => ['role_or_permission:borrar-usuario']], function () {
+    Route::resource('usuarios', UsuarioController::class)
+        ->only(['destroy']);
+});
+
+
+//rutas de las demas tablas
+Route::group(['middleware' => ['role_or_permission:ver']], function () {
+    Route::resource('categorias', CategoriasController::class)
+        ->only(['index']);
+    Route::resource('productos', ProductosController::class)
+        ->only(['index']);
+});
+Route::group(['middleware' => ['role_or_permission:crear']], function () {
+    Route::resource('categorias', CategoriasController::class)
+        ->only(['create', 'store']);
+    Route::resource('productos', ProductosController::class)
+        ->only(['create', 'store']);
+});
+Route::group(['middleware' => ['role_or_permission:editar']], function () {
+    Route::resource('categorias', CategoriasController::class)
+        ->only(['edit', 'update']);
+    Route::resource('productos', ProductosController::class)
+        ->only(['edit', 'update']);
+});
+Route::group(['middleware' => ['role_or_permission:borrar']], function () {
+    Route::resource('categorias', CategoriasController::class)
+        ->only(['destroy']);
+    Route::resource('productos', ProductosController::class)
+        ->only(['destroy']);
 });

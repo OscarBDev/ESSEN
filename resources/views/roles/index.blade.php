@@ -37,11 +37,15 @@
                         <!-- boton para borrar -->
                         @can('borrar-rol')
 
-                        <form method="DELETE" action="{{ route('roles.destroy', $role->id) }}" style="display: inline">
-                            @csrf
+                        {!! html()->form('DELETE', route('roles.destroy', $role->id))
+                        ->style('display: inline')
+                        ->open() !!}
 
-                            <button type="submit" class="btn btn-danger">Borrar</button>
-                        </form>
+                        {!! html()->button('Borrar')
+                        ->type('submit')
+                        ->class('btn btn-danger') !!}
+
+                        {!! html()->form()->close() !!}
 
                         @endcan
                         <!-- fin del boton para borrar -->

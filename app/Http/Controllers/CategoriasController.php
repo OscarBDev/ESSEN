@@ -12,6 +12,7 @@ class CategoriasController extends Controller
     {
         return [
             'permission:ver|crear|editar|borrar' => ['only' => ['index']],
+            'permission:ver' => ['only' => ['index']],
             'permission:crear' => ['only' => ['create', 'store']],
             'permission:editar' => ['only' => ['edit', 'update']],
             'permission:borrar' => ['only' => ['destroy']],

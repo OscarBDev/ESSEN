@@ -316,11 +316,13 @@ return [
             'text' => 'Usuarios',
             'icon' => 'fas fa-fw fa-user',
             'url' => '/usuarios',
+            'can' => 'ver-usuario',
         ],
         [
             'text' => 'Roles',
             'icon' => 'fas fa-solid fa-dice',
             'url' => '/roles',
+            'can' => 'ver-rol',
         ],
         //aqui las tablas
         ['header' => 'Tablas de datos'],
@@ -328,11 +330,13 @@ return [
             'text' => 'Categorias',
             'icon' => 'fas fa-list',
             'url' => '/categorias',
+            'can' => 'ver',
         ],
         [
             'text' => 'Productos',
             'icon' => 'fas fa-utensils',
             'url' => '/productos',
+            'can' => 'ver',
         ],
         //end
         ['header' => 'account_settings'],

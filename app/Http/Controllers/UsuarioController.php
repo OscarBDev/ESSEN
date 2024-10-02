@@ -16,10 +16,10 @@ class UsuarioController extends Controller
     public static function middleware(): array
     {
         return [
-            'permission:ver-usuarios|crear-usuarios|editar-usuarios|borrar-usuarios' => ['only' => ['index']],
-            'permission:crear-usuarios' => ['only' => ['create', 'store']],
-            'permission:editar-usuarios' => ['only' => ['edit', 'update']],
-            'permission:borrar-usuarios' => ['only' => ['destroy']],
+            'permission:ver-usuario|crear-usuario|editar-usuario|borrar-usuario' => ['only' => ['index']],
+            'permission:crear-usuario' => ['only' => ['create', 'store']],
+            'permission:editar-usuario' => ['only' => ['edit', 'update']],
+            'permission:borrar-usuario' => ['only' => ['destroy']],
         ];
     }
     /**
