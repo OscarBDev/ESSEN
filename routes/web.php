@@ -29,7 +29,7 @@ Route::group(['middleware' => ['role_or_permission:ver-rol']], function () {
 });
 Route::group(['middleware' => ['role_or_permission:crear-rol']], function () {
     Route::resource('roles', RolController::class)
-        ->only(['create', 'store']);
+        ->only(['create', 'store']); 
 });
 Route::group(['middleware' => ['role_or_permission:editar-rol']], function () {
     Route::resource('roles', RolController::class)

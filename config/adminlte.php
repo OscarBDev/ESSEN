@@ -325,7 +325,7 @@ return [
             'can' => 'ver-rol',
         ],
         //aqui las tablas
-        ['header' => 'Tablas de datos'],
+        ['header' => 'Nuestros Productos'],
         [
             'text' => 'Categorias',
             'icon' => 'fas fa-list',

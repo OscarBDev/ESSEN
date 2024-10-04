@@ -8,16 +8,16 @@ use Illuminate\Http\Request;
 use App\Models\Categoria;
 class CategoriasController extends Controller
 {
-    public static function middleware(): array
-    {
-        return [
-            'permission:ver|crear|editar|borrar' => ['only' => ['index']],
-            'permission:ver' => ['only' => ['index']],
-            'permission:crear' => ['only' => ['create', 'store']],
-            'permission:editar' => ['only' => ['edit', 'update']],
-            'permission:borrar' => ['only' => ['destroy']],
-        ];
-    }
+    // public static function middleware(): array
+    // {
+    //     return [
+    //         'permission:ver|crear|editar|borrar' => ['only' => ['index']],
+    //         'permission:ver' => ['only' => ['index']],
+    //         'permission:crear' => ['only' => ['create', 'store']],
+    //         'permission:editar' => ['only' => ['edit', 'update']],
+    //         'permission:borrar' => ['only' => ['destroy']],
+    //     ];
+    // }
     /**
      * Display a listing of the resource.
      */

@@ -12,12 +12,13 @@ use Illuminate\Support\Facades\Schema;
 
 class ProductosController extends Controller
 {
-    public static function middleware(): array
-    {
-        return [
-            CategoriasController::middleware(), //heredamos los middlewares de la clase CategoriasController
-        ];
-    }
+    // public static function middleware(): array
+    // {
+    //     return [
+    //         CategoriasController::middleware(), //heredamos los middlewares de la clase CategoriasController
+    //     ];
+    // }
+    
     /**
      * Display a listing of the resource.
      */

@@ -12,15 +12,15 @@ use Illuminate\Support\Facades\DB;
 class RolController extends Controller
 {
 
-    public static function middleware(): array
-    {
-        return [
-            'permission:ver-rol|crear-rol|editar-rol|borrar-rol' => ['only' => ['index']],
-            'permission:crear-rol' => ['only' => ['create', 'store']],
-            'permission:editar-rol' => ['only' => ['edit', 'update']],
-            'permission:borrar-rol' => ['only' => ['destroy']],
-        ];
-    }
+    // public static function middleware(): array
+    // {
+    //     return [
+    //         'permission:ver-rol|crear-rol|editar-rol|borrar-rol' => ['only' => ['index']],
+    //         'permission:crear-rol' => ['only' => ['create', 'store']],
+    //         'permission:editar-rol' => ['only' => ['edit', 'update']],
+    //         'permission:borrar-rol' => ['only' => ['destroy']],
+    //     ];
+    // }
     /**
      * Display a listing of the resource.
      */

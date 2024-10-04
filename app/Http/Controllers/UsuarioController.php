@@ -13,15 +13,15 @@ use Illuminate\Support\Arr;
 
 class UsuarioController extends Controller
 {
-    public static function middleware(): array
-    {
-        return [
-            'permission:ver-usuario|crear-usuario|editar-usuario|borrar-usuario' => ['only' => ['index']],
-            'permission:crear-usuario' => ['only' => ['create', 'store']],
-            'permission:editar-usuario' => ['only' => ['edit', 'update']],
-            'permission:borrar-usuario' => ['only' => ['destroy']],
-        ];
-    }
+    // public static function middleware(): array
+    // {
+    //     return [
+    //         'permission:ver-usuario|crear-usuario|editar-usuario|borrar-usuario' => ['only' => ['index']],
+    //         'permission:crear-usuario' => ['only' => ['create', 'store']],
+    //         'permission:editar-usuario' => ['only' => ['edit', 'update']],
+    //         'permission:borrar-usuario' => ['only' => ['destroy']],
+    //     ];
+    // }
     /**
      * Display a listing of the resource.
      */
