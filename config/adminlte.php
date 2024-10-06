@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Empresa ESSEN',
     'title_prefix' => '',
     'title_postfix' => '',
 

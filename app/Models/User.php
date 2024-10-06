@@ -33,6 +33,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    //relacion empleados (1) a users (1)
+    public function empleados(){
+        return $this->hasOne(Empleado::class, 'id', 'id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

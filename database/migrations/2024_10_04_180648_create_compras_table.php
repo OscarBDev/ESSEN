@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('compras', function (Blueprint $table) {
             $table->id('id_compra');
             $table->date('fecha_compra');   //deve de estar en la vista una opcion que oponga la fecha del dia de manera automatica 
-            $table->decimal('total_compra', 10,2);
             $table->foreignId('id_empleado')->constrained('empleados', 'id_empleado'); //llave foranea hacia empleados
             $table->timestamps();
             $table->softDeletes(); // Elimina la columna deleted_at

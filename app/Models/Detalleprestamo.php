@@ -5,24 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Detalleventa extends Model
+class Detalleprestamo extends Model
 {
     use HasFactory;
 
     //ponemos la id del migracion
-    protected $primaryKey = 'id_detalle_venta';
+    protected $primaryKey = 'id_detalle_prestamo';
 
     //ponemos los campos de la tabla
     protected $fillable = [
         'cantidad',
     ];
 
-    //relacion productos (1) a detalleventas (N)
+    //relacion productos (1) a detalleprestamos (N)
     public function productos(){
         return $this->belongsTo(Producto::class, 'id_producto', 'id_producto');
     }
-    //relacion ventas (1) a detalleventas (N)
-    public function ventas(){
-        return $this->belongsTo(Venta::class, 'id_venta', 'id_venta');
+    //relacion prestamos (1) a detalleprestamos (N)
+    public function prestamos(){
+        return $this->belongsTo(Prestamo::class, 'id_prestamo', 'id_prestamo');
     }
 }

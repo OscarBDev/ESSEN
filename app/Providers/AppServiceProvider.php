@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         //spatie
         Gate::before(function ($user, $ability) {
-            return $user->email == 'admin@gmail.com' ?? null;
+            return $user->email == 'admin@gmail.com' ?? null;  //correo por defecto con todos los permisos de admin
         });
     }
 }

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('nombre', 30);
             $table->string('apellido_paterno', 30);
             $table->string('apellido_materno', 30);
-            $table->string('telefono 1', 15)->nullable();
-            $table->string('telefono 2', 15)->nullable();
+            $table->string('telefono_1', 15)->nullable();
+            $table->string('telefono_2', 15)->nullable();
             $table->timestamps();
             $table->softDeletes(); // Elimina la columna deleted_at
         });
