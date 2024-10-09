@@ -15,6 +15,8 @@ class Prestamo extends Model
     //ponemos los campos de la tabla
     protected $fillable = [
         'fecha_prestamo',
+        'id_empleado',
+        'id_vendedor_externo',
     ];
 
     //relacion empleados (1) a prestamos (N)

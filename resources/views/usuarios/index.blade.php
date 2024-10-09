@@ -3,17 +3,14 @@
 @section('title', 'Usuarios')
 
 @section('content_header')
-<h1>Usuarios</h1>
+<h1>Empleados</h1>
 @stop
 
 @section('content')
 
-<!-- tabla de los usuarios -->
-<p>Panel de Usuarios</p>
-
 <!-- boton para agreagar un nuevo usuario -->
 @can('crear-usuario')
-<a class="btn btn-warning" href="{{ route('usuarios.create') }}">Nuevo</a>
+<a class="btn btn-warning" href="{{ route('usuarios.create') }}">Nuevo Empleado</a>
 @endcan
 <!-- tabla de los usuarios -->
 <div class="cotainer">
@@ -21,8 +18,13 @@
         <table class="table mt-2">
             <thead class="table-dark">
                 <th class="" style="display:none;">ID</th>
-                <th class="">Nombre</th>
                 <th class="">E-email</th>
+                <th class="">CI</th>
+                <th class="">Nombre</th>
+                <th class="">Apellido Paterno</th>
+                <th class="">Apellido Materno</th>
+                <th class="">Telefono 1</th>
+                <th class="">Telefono 2</th>
                 <th class="">Rol</th>
                 <th class="">Acciones</th>
             </thead>
@@ -30,9 +32,22 @@
                 @foreach ($usuarios as $usuario)
                 <tr>
                     <td style="display:none;">{{ $usuario->id }}</td>
-                    <td>{{ $usuario->name }}</td>
+                    <!-- USUARIOS DATOS -->
                     <td>{{ $usuario->email }}</td>
-                    <!-- para los roles -->
+                    <!-- FIN -->
+                    <!-- PERSONAS / EMPLADOS DATOS -->
+                    @if ($usuario->empleados && $usuario->empleados->personas)
+                    <td>{{ $usuario->empleados->personas->ci }}</td>
+                    <td>{{ $usuario->empleados->personas->nombre }} </td>
+                    <td>{{ $usuario->empleados->personas->apellido_paterno }}</td>
+                    <td>{{ $usuario->empleados->personas->apellido_materno }}</td>
+                    <td>{{ $usuario->empleados->personas->telefono_1 }}</td>
+                    <td>{{ $usuario->empleados->personas->telefono_2 }}</td>
+                    @else
+                    <td colspan="6">No hay información de la persona disponible</td>
+                    @endif
+                    <!-- FIN -->
+                    <!-- ROLES -->
                     <td>
                         <!-- mostramos los roles con getRoleNames segun documentacion de spatie -->
                         @if (!empty($usuario->getRoleNames()))
@@ -41,6 +56,7 @@
                         @endforeach
                         @endif
                     </td>
+                    <!-- FIN -->
                     <!-- celda para los botones -->
                     <td>
                         @can('editar-usuario')
@@ -61,6 +77,7 @@
 
                         @endcan
                     </td>
+                    <!-- FIN -->
                 </tr>
                 @endforeach
             </tbody>

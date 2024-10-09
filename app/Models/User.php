@@ -28,15 +28,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        //'name',
         'email',
         'password',
     ];
-
-    //relacion empleados (1) a users (1)
-    public function empleados(){
-        return $this->hasOne(Empleado::class, 'id', 'id');
-    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -70,5 +65,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    //relacion empleados (1) a users (1)
+    public function empleados(){
+        return $this->hasOne(Empleado::class, 'id', 'id');
     }
 }

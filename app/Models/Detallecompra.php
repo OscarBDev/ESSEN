@@ -16,6 +16,8 @@ class Detallecompra extends Model
     protected $fillable = [
         'cantidad',
         'total_compra',
+        'id_producto',
+        'id_compra',
     ];
 
     //relacion compras (1) a detallecompras (N)

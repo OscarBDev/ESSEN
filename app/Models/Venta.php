@@ -17,6 +17,8 @@ class Venta extends Model
         'descuento',
         'total_venta',
         'fecha_venta',
+        'id_cliente',
+        'id_empleado',
     ];
 
     //relacion empleados (1) a ventas (N)

@@ -1,12 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+
 //agregamos
+
+use App\Models\Empleado;
 use App\Models\Persona;
 
 use Illuminate\Http\Request;
 
-class PersonasController extends Controller
+class EmpleadosController extends Controller
 {
     /**
      * Display a listing of the resource.

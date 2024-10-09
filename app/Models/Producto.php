@@ -18,7 +18,8 @@ class Producto extends Model
         'capacidad',
         'medida',
         'stock',
-        'precio_unitario'
+        'precio_unitario',
+        'id_categoria',
     ];
 
     //relacion categorias (1) a productos (N)

@@ -19,6 +19,7 @@ class Cuota extends Model
         'estado',
         'tipo_de_pago',
         'Proxima_fecha_a_pagar',
+        'id_venta'
     ];
 
     //relacion ventas (1) a cuotas (N)

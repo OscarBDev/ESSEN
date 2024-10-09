@@ -14,7 +14,10 @@ class Vendedorexterno extends Model
     protected $primaryKey = 'id_vendedor_externo';
 
     //ponemos los campos de la tabla
-    //hereda de la tabla persona
+    protected $fillable = [
+        //hereda de la tabla persona los demas datos
+        'id_persona',
+    ];
 
     //relacion personas (1) a vendedorexternos (N)
     public function personas(){

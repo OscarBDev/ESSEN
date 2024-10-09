@@ -16,6 +16,7 @@ class Devolucion extends Model
     protected $fillable = [
         'fecha_devolucion',
         'estado',
+        'id_prestamo',
     ];
 
     //relacion prestamos (1) a devolucions (N)

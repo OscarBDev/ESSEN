@@ -313,7 +313,7 @@ return [
         //configuraciones de mis tablas
         ['header' => 'Configuraciones'],
         [
-            'text' => 'Usuarios',
+            'text' => 'Empleados', //usuarios
             'icon' => 'fas fa-fw fa-user',
             'url' => '/usuarios',
             'can' => 'ver-usuario',

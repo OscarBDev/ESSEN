@@ -12,13 +12,17 @@ class Empleado extends Model
     protected $primaryKey = 'id_empleado';
 
     //ponemos los campos de la tabla
-    //hereda de la tabla persona
+    protected $fillable = [
+        //hereda de la tabla persona los demas datos
+        'id', 
+        'id_persona'
+    ];
 
     //relacion personas (1) a empleados (N)
     public function personas(){
         return $this->belongsTo(Persona::class, 'id_persona', 'id_persona');
     }
-    //relacion empleados (1) a user (1)
+    //relacion user (1) a empleados (1)
     public function users(){
         return $this->belongsTo(User::class, 'id', 'id');
     }

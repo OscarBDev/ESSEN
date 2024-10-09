@@ -15,6 +15,7 @@ class Compra extends Model
     //ponemos los campos de la tabla
     protected $fillable = [
         'fecha_compra',
+        'id_empleado',
     ];
 
     //relacion empleados (1) a compras (N)

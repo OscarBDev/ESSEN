@@ -17,6 +17,7 @@ class Detallepago extends Model
         'nro_de_cuenta',
         'deposito',
         'fecha_de_deposito',
+        'id_cuota',
     ];
 
     //relacion cuotas (0) a detallepagos (N)

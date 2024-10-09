@@ -18,6 +18,7 @@ class Cliente extends Model
     protected $fillable = [
         //hereda de la tabla persona
         'direccion',
+        'id_persona',
     ];
     //relacion personas (1) a clientes (N)
     public function personas(){

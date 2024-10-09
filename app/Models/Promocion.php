@@ -16,6 +16,7 @@ class Promocion extends Model
     protected $fillable = [
         'porcentaje_descuento',
         'precio_descuento',
+        'id_producto',
     ];
 
     //relacion productos (0) a promocions (1)

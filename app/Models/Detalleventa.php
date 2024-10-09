@@ -15,6 +15,8 @@ class Detalleventa extends Model
     //ponemos los campos de la tabla
     protected $fillable = [
         'cantidad',
+        'id_producto',
+        'id_venta',
     ];
 
     //relacion productos (1) a detalleventas (N)

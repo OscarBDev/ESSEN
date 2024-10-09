@@ -16,6 +16,8 @@ class Detalledevolucion extends Model
     protected $fillable = [
         'cantidad',
         'tipo_de_devolucion',
+        'id_producto',
+        'id_devolucion',
     ];
 
     //relacion productos (1) a detalledevolucions (N)
