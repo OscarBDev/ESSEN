@@ -12,19 +12,15 @@ use Illuminate\Support\Facades\Schema;
 
 class ProductosController extends Controller
 {
-    // public static function middleware(): array
-    // {
-    //     return [
-    //         CategoriasController::middleware(), //heredamos los middlewares de la clase CategoriasController
-    //     ];
-    // }
     
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $productos = Producto::paginate(10);
+        $productos = Producto::with([
+            'categorias',
+        ])->get();
         return view('productos.index', compact('productos'));
     }
 
@@ -45,6 +41,7 @@ class ProductosController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
+            'codigo' => 'required',
             'color' => 'nullable',
             'comensales' => 'nullable',
             'medida' => 'nullable',
@@ -66,6 +63,7 @@ class ProductosController extends Controller
         //creamos despues el producto con la nueva o ya existente categoria 
         Producto::create([
             'nombre' => $request->nombre,
+            'codigo' => $request->codigo,
             'color' => $request->color,
             'comensales' => $request->comensales,
             'medida' => $request->medida,
@@ -103,6 +101,7 @@ class ProductosController extends Controller
         //validamos
         $request->validate([
             'nombre' => 'required',
+            'codigo' => 'required',
             'color' => 'nullable',
             'comensales' => 'nullable',
             'medida' => 'nullable',

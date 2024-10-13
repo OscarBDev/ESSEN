@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('detallecompras', function (Blueprint $table) {
-            $table->id('id_detalle_compra');
+        Schema::create('historialprecios', function (Blueprint $table) {
+            $table->id('id_historial_precio');
+            $table->decimal('precio_unitario',10,2);
             $table->integer('cantidad');
-            $table->decimal('total_compra',10,2);
-            $table->decimal('margen_de_ganancia',10,2);
+            $table->decimal('total_precio',10,2);
+            $table->date('fecha_historial');   //deve de estar en la vista una opcion que ponga la fecha del dia de manera automatica
             $table->foreignId('id_producto')->constrained('productos', 'id_producto'); //llave foranea hacia productos
-            $table->foreignId('id_compra')->constrained('compras', 'id_compra'); //llave foranea hacia compras
             $table->timestamps();
             $table->softDeletes(); // Elimina la columna deleted_at
         });
@@ -28,7 +28,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('detallecompras', function(Blueprint $table){
+        Schema::dropIfExists('historialprecios', function(Blueprint $table){
             $table->dropSoftDeletes();  // Vuelve a agregar la columna deleted_at
         });
     }

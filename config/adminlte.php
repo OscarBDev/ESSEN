@@ -316,12 +316,14 @@ return [
             'text' => 'Empleados', //usuarios
             'icon' => 'fas fa-fw fa-user',
             'url' => '/usuarios',
+            'icon_color' => 'white',
             'can' => 'ver-usuario',
         ],
         [
             'text' => 'Roles',
             'icon' => 'fas fa-solid fa-dice',
             'url' => '/roles',
+            'icon_color' => 'orange',
             'can' => 'ver-rol',
         ],
         //aqui las tablas
@@ -330,12 +332,31 @@ return [
             'text' => 'Categorias',
             'icon' => 'fas fa-list',
             'url' => '/categorias',
+            'icon_color' => 'blue',
             'can' => 'ver',
         ],
         [
             'text' => 'Productos',
             'icon' => 'fas fa-utensils',
             'url' => '/productos',
+            'icon_color' => 'cyan',
+            'can' => 'ver',
+        ],
+        //end
+        //aqui las tablas
+        ['header' => 'Ventas y Compras'],
+        [
+            'text' => 'Ventas',
+            'icon' => 'fas fa-dollar-sign',
+            'url' => '/ventas',
+            'icon_color' => 'yellow',
+            'can' => 'ver',
+        ],
+        [
+            'text' => 'Compras',
+            'icon' => 'fas fa-shopping-cart',
+            'url' => '/compras',
+            'icon_color' => 'red',
             'can' => 'ver',
         ],
         //end
@@ -387,22 +408,6 @@ return [
                     'url' => '#',
                 ],
             ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text' => 'important',
-            'icon_color' => 'red',
-            'url' => '#',
-        ],
-        [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
-            'url' => '#',
-        ],
-        [
-            'text' => 'information',
-            'icon_color' => 'cyan',
-            'url' => '#',
         ],
     ],
 

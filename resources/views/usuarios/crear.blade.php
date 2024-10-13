@@ -33,7 +33,7 @@
         <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
                 <label for="email">E-mail</label>
-                <input type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Correo Electrónico">
+                <input type="email" name="email" class="form-control" placeholder="Correo Electrónico">
             </div>
         </div>
 
@@ -68,42 +68,42 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="ci">Cédula de Identidad</label>
-                <input type="text" name="ci" class="form-control" value="Cedula de Identidad" placeholder="Cédula de Identidad">
+                <input type="text" name="ci" class="form-control" placeholder="Cédula de Identidad">
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="form-group">
                 <label for="nombre">Nombres</label>
-                <input type="text" name="nombre" class="form-control" value="Nombres" placeholder="Nombres">
+                <input type="text" name="nombre" class="form-control" placeholder="Nombres">
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="form-group">
                 <label for="apellido_paterno">Apellido Paterno</label>
-                <input type="text" name="apellido_paterno" class="form-control" value="Apellido Paterno" placeholder="Apellido Paterno">
+                <input type="text" name="apellido_paterno" class="form-control" placeholder="Apellido Paterno">
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="form-group">
                 <label for="apellido_materno">Apellido Materno</label>
-                <input type="text" name="apellido_materno" class="form-control" value="Apellido Materno" placeholder="Apellido Materno">
+                <input type="text" name="apellido_materno" class="form-control" placeholder="Apellido Materno">
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="form-group">
                 <label for="telefono_1">Teléfono 1</label>
-                <input type="text" name="telefono_1" class="form-control" value="Telfoon 1" placeholder="Teléfono 1">
+                <input type="text" name="telefono_1" class="form-control" placeholder="Teléfono 1">
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="form-group">
                 <label for="telefono_2">Teléfono 2</label>
-                <input type="text" name="telefono_2" class="form-control" value="Telfoon 2" placeholder="Teléfono 2">
+                <input type="text" name="telefono_2" class="form-control" placeholder="Teléfono 2">
             </div>
         </div>
         <!-- fin de los datos de persona -->

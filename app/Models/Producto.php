@@ -13,6 +13,7 @@ class Producto extends Model
 
     protected $fillable = [
         'nombre',
+        'codigo',
         'color',
         'comensales',
         'capacidad',
@@ -45,5 +46,9 @@ class Producto extends Model
     //relacion productos (1) a detalledevolucions (N)
     public function detalledevolucions(){
         return $this->hasMany(Detalledevolucion::class, 'id_producto', 'id_producto');
+    }
+    //relacion productos (1) a historialprecios (N)
+    public function historialprecios(){
+        return $this->hasMany(Historialprecio::class, 'id_producto', 'id_producto');
     }
 }

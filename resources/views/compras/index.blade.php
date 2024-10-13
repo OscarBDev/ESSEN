@@ -1,12 +1,17 @@
 @extends('adminlte::page')
 
-@section('title', 'Productos')
+@section('title', 'Dashboard')
 
 @section('content_header')
-<h1>Productos</h1>
+<h1>Detalle de compras</h1>
 @stop
 
 @section('content')
+
+<!-- boton para agregar una nueva compra -->
+@can('ver')
+<a class="btn btn-warning" href="{{ route('compras.create') }}">Nuevo compra</a>
+@endcan
 
 <!-- tabla de compras -->
 <div class="container-fluid">
@@ -14,44 +19,53 @@
         <table class="table mt-2">
             <thead class="table-dark">
                 <th class="" style="display:none;">ID</th>
+
+                <th class="">Fecha compra</th>
+                <th class="">Empleado</th>
+
+                <th class="">Cantidad de compra</th>
+
                 <th class="">Nombre de Producto</th>
-                <th class="">Codigo</th>
-                <th class="">Color</th>
-                <th class="">Comensales</th>
-                <th class="">Medida</th>
-                <th class="">Stock</th>
                 <th class="">Precio Unitario</th>
 
                 <th class="">Categoria</th>
                 <th class="">Acciones</th>
             </thead>
             <tbody>
-                @foreach ($productos as $producto)
+                @foreach ($detallecompras as $detallecompra)
                 <tr>
+                    <!-- DATOS DE DETALLE COMPRA -->
+                    <td style="display:none;">{{ $detallecompra->id_detalle_compra }}</td>
+                    <!-- FIN DE DETALLE COMPRA -->
+
+                    <!-- DETALLE COMPRAS -->
+                    <td>{{ $detallecompra->compras->fecha_compra }}</td>
+                    <!-- empleado que realizo la venta -->
+                    <td>{{ $detallecompra->compras->empleados->personas->nombre }}</td>
+                    <!-- FIN COMPRAS -->
+                    
+                    <!-- detalle veta -->
+                    <td>{{ $detallecompra->cantidad }}</td>
+                    <!-- fin de detalle venta -->
+
                     <!-- PRODUCTOS/CATEGORIAS DATOS -->
-                    <td style="display:none;">{{ $producto->id_producto }}</td>
-                    <td>{{ $producto->nombre }}</td>
-                    <td>{{ $producto->codigo }}</td>
-                    <td>{{ $producto->color }}</td>
-                    <td>{{ $producto->comensales }}</td>
-                    <td>{{ $producto->medida }}</td>
-                    <td>{{ $producto->stock }}</td>
-                    <td>{{ $producto->precio_unitario }}</td>
+                    <td>{{ $detallecompra->productos->nombre }}</td>
+                    <td>{{ $detallecompra->productos->precio_unitario }}</td>
                     <!-- FIN DE PRODUCT0S -->
 
                     <!-- CATEGORIA DE PRODUCTO -->
-                    <td>{{ $producto->categorias->nombre }}</td>
+                    <td>{{ $detallecompra->productos->categorias->nombre }}</td>
                     <!-- FIN DE CATEGORIA DE PRODUCTO -->
 
                     <!-- celda para los botones -->
                     <td>
                         @can('editar')
-                        <a class="btn btn-info" href="{{ route('compras.edit', $producto->id_producto) }}">Editar</a>
+                        <a class="btn btn-info" href="{{ route('compras.edit', $detallecompra->id_detalle_compra) }}">Editar</a>
                         @endcan
 
                         @can('borrar-usuario')
 
-                        {!! html()->form('DELETE', route('compras.destroy', $producto->id_producto))
+                        {!! html()->form('DELETE', route('compras.destroy', $detallecompra->id_detalle_compra))
                         ->style('display: inline')
                         ->open() !!}
 
