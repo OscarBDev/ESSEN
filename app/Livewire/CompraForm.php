@@ -10,6 +10,7 @@ use App\Models\Producto;
 use App\Models\Detallecompra;
 use App\Models\Historialprecio;
 use App\Models\Empleado;
+use Illuminate\Support\Facades\Http;
 
 class CompraForm extends Component
 {
@@ -70,6 +71,10 @@ class CompraForm extends Component
             $this->reset(['color', 'comensales', 'medida', 'stock', 'precio_unitario', 'categoria_nombre']);
         }
     }
+
+
+
+
     //mandamos a la vista de livewire
     public function render()
     {

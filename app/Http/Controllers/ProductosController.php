@@ -9,6 +9,7 @@ use App\Models\Producto;
 use App\Models\Categoria;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Historialprecio;
 
 class ProductosController extends Controller
 {
@@ -20,8 +21,9 @@ class ProductosController extends Controller
     {
         $productos = Producto::with([
             'categorias',
-        ])->get();
-        return view('productos.index', compact('productos'));
+        ])->paginate(8);
+        $historialprecios = Historialprecio::all();
+        return view('productos.index', compact('productos', 'historialprecios'));
     }
 
     /**

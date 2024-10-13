@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<h1>Detalle de compras</h1>
+<h1 class="title mt-4">Detalle de compras</h1>
 @stop
 
 @section('content')
@@ -23,7 +23,9 @@
                 <th class="">Fecha compra</th>
                 <th class="">Empleado</th>
 
-                <th class="">Cantidad de compra</th>
+                <th class="">Cantidad comprada</th>
+                <th class="">Total compra</th>
+                <th class="">Margen de ganancia</th>
 
                 <th class="">Nombre de Producto</th>
                 <th class="">Precio Unitario</th>
@@ -46,11 +48,13 @@
                     
                     <!-- detalle veta -->
                     <td>{{ $detallecompra->cantidad }}</td>
+                    <th>{{ $detallecompra->total_compra }} Bs</th>
+                    <th>{{ $detallecompra->margen_de_ganancia }} %</th>
                     <!-- fin de detalle venta -->
 
                     <!-- PRODUCTOS/CATEGORIAS DATOS -->
                     <td>{{ $detallecompra->productos->nombre }}</td>
-                    <td>{{ $detallecompra->productos->precio_unitario }}</td>
+                    <th>{{ $detallecompra->productos->precio_unitario }} Bs</th>
                     <!-- FIN DE PRODUCT0S -->
 
                     <!-- CATEGORIA DE PRODUCTO -->
@@ -63,7 +67,7 @@
                         <a class="btn btn-info" href="{{ route('compras.edit', $detallecompra->id_detalle_compra) }}">Editar</a>
                         @endcan
 
-                        @can('borrar-usuario')
+                        @can('borrar')
 
                         {!! html()->form('DELETE', route('compras.destroy', $detallecompra->id_detalle_compra))
                         ->style('display: inline')
@@ -87,11 +91,15 @@
 </div>
 <!-- fin de tabla de compras -->
 
+<!-- añañdimos la paginacion -->
+{{ $detallecompras->links('pagination::bootstrap-4') }}
+
 @stop
 
 @section('css')
 {{-- Add here extra stylesheets --}}
 {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+<link rel="stylesheet" href="{{ asset('css/title.css') }}">
 @stop
 
 @section('js')

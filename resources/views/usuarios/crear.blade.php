@@ -3,7 +3,7 @@
 @section('title', 'Crear Usuario')
 
 @section('content_header')
-<h1>Crear Usuario</h1>
+<h1 class="title mt-4">Crear Usuario</h1>
 @stop
 
 @section('content')
@@ -37,14 +37,14 @@
             </div>
         </div>
 
-        <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="col-xs-3 col-sm-3 col-md-3">
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" name="password" class="form-control" placeholder="Contraseña">
             </div>
         </div>
 
-        <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="col-xs-3 col-sm-3 col-md-3">
             <div class="form-group">
                 <label for="confirm-password">Confirmar Password</label>
                 <input type="password" name="confirm-password" class="form-control" placeholder="Confirmar Contraseña">
@@ -52,7 +52,7 @@
         </div>
 
         <!-- para el rol -->
-        <div class="col-xs-6 col-sm-6 col-md-6">
+        <div class="col-xs-4 col-sm-4 col-md-4">
             <div class="form-group">
                 <label for="">Roles</label>
                 {{ html()->select('roles[]', $roles)->class('form-control') }}
@@ -65,7 +65,7 @@
             <h4>Datos de la Persona/Empleado</h4>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-3">
             <div class="form-group">
                 <label for="ci">Cédula de Identidad</label>
                 <input type="text" name="ci" class="form-control" placeholder="Cédula de Identidad">
@@ -79,31 +79,35 @@
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="apellido_paterno">Apellido Paterno</label>
                 <input type="text" name="apellido_paterno" class="form-control" placeholder="Apellido Paterno">
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="apellido_materno">Apellido Materno</label>
                 <input type="text" name="apellido_materno" class="form-control" placeholder="Apellido Materno">
             </div>
         </div>
 
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="telefono_1">Teléfono 1</label>
-                <input type="text" name="telefono_1" class="form-control" placeholder="Teléfono 1">
-            </div>
-        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="telefono_1">Teléfono 1</label>
+                        <input type="text" name="telefono_1" class="form-control" placeholder="Teléfono 1">
+                    </div>
+                </div>
 
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="telefono_2">Teléfono 2</label>
-                <input type="text" name="telefono_2" class="form-control" placeholder="Teléfono 2">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="telefono_2">Teléfono 2</label>
+                        <input type="text" name="telefono_2" class="form-control" placeholder="Teléfono 2">
+                    </div>
+                </div>
             </div>
         </div>
         <!-- fin de los datos de persona -->
@@ -121,6 +125,7 @@
 @section('css')
 {{-- Add here extra stylesheets --}}
 {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+<link rel="stylesheet" href="{{ asset('css/title.css') }}">
 @stop
 
 @section('js')

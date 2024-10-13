@@ -3,7 +3,7 @@
 @section('title', 'Usuarios')
 
 @section('content_header')
-<h1>Empleados</h1>
+<h1 class="title mt-4">Empleados</h1>
 @stop
 
 @section('content')
@@ -95,6 +95,7 @@
 @section('css')
 {{-- Add here extra stylesheets --}}
 {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+<link rel="stylesheet" href="{{ asset('css/title.css') }}">
 @stop
 
 @section('js')

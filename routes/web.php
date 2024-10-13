@@ -6,7 +6,7 @@ use App\Http\Controllers\RolController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\ProductosController;
-use App\Http\Controllers\DetallecomprasController;
+use App\Http\Controllers\HistorialpreciosController;
 use App\Http\Controllers\ComprasController;
 
 Route::get('/', function () {
@@ -61,23 +61,21 @@ Route::group(['middleware' => ['role_or_permission:borrar-usuario']], function (
 });
 
 
-//rutas de las demas tablas
+//rutas de todas las tablas/entidades
 Route::group(['middleware' => ['role_or_permission:ver']], function () {
     Route::resource('categorias', CategoriasController::class)
         ->only(['index']);
     Route::resource('productos', ProductosController::class)
         ->only(['index']);
-    Route::resource('detallecompras', DetallecomprasController::class)
-        ->only(['index']);
     Route::resource('compras', ComprasController::class)
         ->only(['index']);
+    Route::get('historial_precios/{id_producto}', [HistorialpreciosController::class, 'index'])
+        ->name('historial_precios.index');
 });
 Route::group(['middleware' => ['role_or_permission:crear']], function () {
     Route::resource('categorias', CategoriasController::class)
         ->only(['create', 'store']);
     Route::resource('productos', ProductosController::class)
-        ->only(['create', 'store']);
-    Route::resource('detallecompras', DetallecomprasController::class)
         ->only(['create', 'store']);
     Route::resource('compras', ComprasController::class)
         ->only(['create', 'store']);
@@ -87,8 +85,6 @@ Route::group(['middleware' => ['role_or_permission:editar']], function () {
         ->only(['edit', 'update']);
     Route::resource('productos', ProductosController::class)
         ->only(['edit', 'update']);
-    Route::resource('detallecompras', DetallecomprasController::class)
-        ->only(['edit', 'update']);
     Route::resource('compras', ComprasController::class)
         ->only(['edit', 'update']);
 });
@@ -96,8 +92,6 @@ Route::group(['middleware' => ['role_or_permission:borrar']], function () {
     Route::resource('categorias', CategoriasController::class)
         ->only(['destroy']);
     Route::resource('productos', ProductosController::class)
-        ->only(['destroy']);
-    Route::resource('detallecompras', DetallecomprasController::class)
         ->only(['destroy']);
     Route::resource('compras', ComprasController::class)
         ->only(['destroy']);

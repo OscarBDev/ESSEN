@@ -3,7 +3,7 @@
 @section('title', 'Editar Rol')
 
 @section('content_header')
-<h1>Editar Rol</h1>
+<h1 class="title mt-4">Editar Rol</h1>
 @stop
 
 @section('content')
@@ -54,6 +54,7 @@
 @section('css')
 {{-- Add here extra stylesheets --}}
 {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+<link rel="stylesheet" href="{{ asset('css/title.css') }}">
 @stop
 
 @section('js')

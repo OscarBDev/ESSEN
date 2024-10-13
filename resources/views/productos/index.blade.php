@@ -3,7 +3,7 @@
 @section('title', 'Productos')
 
 @section('content_header')
-<h1>Productos</h1>
+<h1 class="title mt-4">Productos</h1>
 @stop
 
 @section('content')
@@ -36,7 +36,7 @@
                     <td>{{ $producto->comensales }}</td>
                     <td>{{ $producto->medida }}</td>
                     <td>{{ $producto->stock }}</td>
-                    <td>{{ $producto->precio_unitario }}</td>
+                    <th>{{ $producto->precio_unitario }} Bs</th>
                     <!-- FIN DE PRODUCT0S -->
 
                     <!-- CATEGORIA DE PRODUCTO -->
@@ -49,7 +49,7 @@
                         <a class="btn btn-info" href="{{ route('compras.edit', $producto->id_producto) }}">Editar</a>
                         @endcan
 
-                        @can('borrar-usuario')
+                        @can('borrar')
 
                         {!! html()->form('DELETE', route('compras.destroy', $producto->id_producto))
                         ->style('display: inline')
@@ -60,7 +60,10 @@
                         ->class('btn btn-danger') !!}
 
                         {!! html()->form()->close() !!}
+                        @endcan
 
+                        @can('ver')
+                        <a class="btn btn-dark" href="{{ route('historial_precios.index', $producto->id_producto) }}">Historial</a>
                         @endcan
                     </td>
                     <!-- FIN -->
@@ -73,11 +76,15 @@
 </div>
 <!-- fin de tabla de compras -->
 
+<!-- añdimos la paginacion -->
+{{ $productos->links('pagination::bootstrap-4') }}
+
 @stop
 
 @section('css')
 {{-- Add here extra stylesheets --}}
 {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+<link rel="stylesheet" href="{{ asset('css/title.css') }}">
 @stop
 
 @section('js')

@@ -27,7 +27,7 @@ class ComprasController extends Controller
             'compras.empleados.personas',
             'compras',
             'productos'
-        ])->get();
+        ])->paginate(8);
         return view('compras.index', compact('detallecompras'));
     }
 
