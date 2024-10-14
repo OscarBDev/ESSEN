@@ -24,6 +24,7 @@ class CompraForm extends Component
     public $codigo;
     public $color;
     public $comensales;
+    public $capacidad;
     public $medida;
     public $stock;
     public $precio_unitario;
@@ -62,13 +63,14 @@ class CompraForm extends Component
             $this->codigo = $producto->codigo;
             $this->color = $producto->color;
             $this->comensales = $producto->comensales;
+            $this->capacidad = $producto->capacidad;
             $this->medida = $producto->medida;
             // Asigna la categoría del producto
             $this->categoria_nombre = $producto->categoria->nombre ?? ''; // método que se esta usando para acceder a la categoría
             $this->id_categoria = $producto->id_categoria; // Asegúrate de que esto sea el ID de la categoría
         } else {
             // Si no existe, vaciamos los campos
-            $this->reset(['color', 'comensales', 'medida', 'stock', 'precio_unitario', 'categoria_nombre']);
+            $this->reset(['color', 'comensales', 'capacidad', 'medida', 'stock', 'precio_unitario', 'categoria_nombre']);
         }
     }
 

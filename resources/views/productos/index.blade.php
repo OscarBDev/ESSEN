@@ -18,6 +18,7 @@
                 <th class="">Codigo</th>
                 <th class="">Color</th>
                 <th class="">Comensales</th>
+                <th class="">Capacidad</th>
                 <th class="">Medida</th>
                 <th class="">Stock</th>
                 <th class="">Precio Unitario</th>
@@ -34,6 +35,7 @@
                     <td>{{ $producto->codigo }}</td>
                     <td>{{ $producto->color }}</td>
                     <td>{{ $producto->comensales }}</td>
+                    <td>{{ $producto->capacidad }}</td>
                     <td>{{ $producto->medida }}</td>
                     <td>{{ $producto->stock }}</td>
                     <th>{{ $producto->precio_unitario }} Bs</th>
@@ -46,20 +48,7 @@
                     <!-- celda para los botones -->
                     <td>
                         @can('editar')
-                        <a class="btn btn-info" href="{{ route('compras.edit', $producto->id_producto) }}">Editar</a>
-                        @endcan
-
-                        @can('borrar')
-
-                        {!! html()->form('DELETE', route('compras.destroy', $producto->id_producto))
-                        ->style('display: inline')
-                        ->open() !!}
-
-                        {!! html()->button('Borrar')
-                        ->type('submit')
-                        ->class('btn btn-danger') !!}
-
-                        {!! html()->form()->close() !!}
+                        <a class="btn btn-info" href="{{ route('productos.edit', $producto->id_producto) }}">Editar</a>
                         @endcan
 
                         @can('ver')

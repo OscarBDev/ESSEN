@@ -65,6 +65,24 @@
         <!-- cargamos el livewire con los campos del formulario -->
         <div class="container-fluid">
             @livewire('compra-form')
+
+            <!-- boton para agregar una nueva categoría -->
+            <div class="col-md-4">
+                <button type="button" id="CategoriaBtn" class="btn btn-secondary mb-3">Agregar Nueva Categoría</button>
+            </div>
+            <!-- fin del boton para mostrar/ocultar el campo de nueva categoría -->
+
+            <!-- Campo para nueva categoría -->
+            <div id="nuevaCategoriaContainer" class="col-md-4" style="display: none;">
+                <div class="form-group">
+                    <label for="nueva_categoria" class="form-label">Agregar Nueva Categoría</label>
+                    <input type="text" name="nueva_categoria" id="nueva_categoria" class="form-control" placeholder="Nombre de nueva categoría">
+                    @error('nueva_categoria')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <!-- fin del campo para nueva categoría -->
         </div>
         <!-- fin del livewire con el formulario -->
 
@@ -87,17 +105,10 @@
         </div>
         <!-- fin de los campos de producto -->
 
-        <!-- Campo para nueva categoría -->
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="nueva_categoria" class="form-label">Agregar Nueva Categoría</label>
-                <input type="text" name="nueva_categoria" id="nueva_categoria" class="form-control" placeholder="Nombre de nueva categoría">
-            </div>
-        </div>
-
         <!-- Botón de enviar -->
         <div class="col-xs-12 col-sm-12 col-md-12">
             <button type="submit" class="btn btn-primary">Registrar Producto</button>
+            <a href="{{ route('compras.index') }}" class="btn btn-secondary">Cancelar</a>
         </div>
         <!-- fin del boton -->
     </div>
@@ -117,7 +128,7 @@
 <!-- para hallar el precio unitario -->
 <script src="{{ asset('js/PrecioUnitario.js') }}"></script>
 <!-- fin de hallar el precio unitario -->
-<script>
-    console.log("Hi, I'm using the Laravel-AdminLTE package!");
-</script>
+<!-- para mostrar/ocultar el campo de nueva categoría -->
+<script src="{{ asset('js/NuevaCategoriaCreate.js') }}"></script>
+<!-- fin de mostrar/ocultar el campo de nueva categoría -->
 @stop

@@ -115,6 +115,7 @@
         <!-- BOTON DE ENVIAR -->
         <div class="col-md-12">
             <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{{ route('usuarios.index') }}" class="btn btn-secondary">Cancelar</a>
         </div>
         <!-- FIN BOTON DE ENVIAR -->
     </div>

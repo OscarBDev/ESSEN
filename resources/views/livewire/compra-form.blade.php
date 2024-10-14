@@ -44,6 +44,13 @@
 
         <div class="col-md-3">
             <div class="form-group">
+                <label for="capacidad" class="form-label">Capacidad</label>
+                <input type="text" name="capacidad" id="capacidad" class="form-control" wire:model="capacidad">
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
                 <label for="medida" class="form-label">Medida</label>
                 <input type="text" name="medida" id="medida" class="form-control" wire:model="medida">
             </div>
@@ -51,15 +58,18 @@
         <!-- fin de los campos de producto -->
 
         <!-- Selección de categoría existente -->
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="id_categoria" class="form-label">Seleccionar Categoría</label>
                 <select wire:model="id_categoria" name="id_categoria" id="id_categoria" class="form-control">
-                    <option value="">Seleccione una categoría</option>
+                    <option value="nothing">Seleccione una categoría</option>
                     @foreach($categorias as $categoria)
                     <option value="{{ $categoria->id_categoria }}">{{ $categoria->nombre }}</option>
                     @endforeach
                 </select>
+                @error('id_categoria')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
         </div>
         <!-- fin de la selección de categoría existente -->

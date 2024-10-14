@@ -61,6 +61,7 @@ class ComprasController extends Controller
             'codigo' => 'required',
             'color' => 'nullable|string',
             'comensales' => 'nullable|numeric',
+            'capacidad' => 'nullable|string',
             'medida' => 'nullable|string',
             'stock' => 'required|numeric',
             'precio_unitario' => 'required|numeric',
@@ -118,6 +119,7 @@ class ComprasController extends Controller
                     'codigo' => $request->codigo,
                     'color' => $request->color,
                     'comensales' => $request->comensales,
+                    'capacidad' => $request->capacidad,
                     'medida' => $request->medida,
                     'stock' => $request->stock,
                     'precio_unitario' => $request->precio_unitario,  // precio unitario calculado

@@ -115,6 +115,7 @@
         <!-- boton para enviar el formulario de crecion -->
         <div class="colxs-12 col-sm-12 col-md-12">
             <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{{ route('usuarios.index') }}" class="btn btn-secondary">Cancelar</a>
         </div>
         <!-- fin del boton -->
     </div>

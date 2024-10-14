@@ -46,7 +46,7 @@
                     <td>{{ $detallecompra->compras->empleados->personas->nombre }}</td>
                     <!-- FIN COMPRAS -->
                     
-                    <!-- detalle veta -->
+                    <!-- detalle venta -->
                     <td>{{ $detallecompra->cantidad }}</td>
                     <th>{{ $detallecompra->total_compra }} Bs</th>
                     <th>{{ $detallecompra->margen_de_ganancia }} %</th>

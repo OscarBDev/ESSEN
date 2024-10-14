@@ -13,7 +13,7 @@ use App\Models\Historialprecio;
 
 class ProductosController extends Controller
 {
-    
+
     /**
      * Display a listing of the resource.
      */
@@ -92,7 +92,7 @@ class ProductosController extends Controller
     {
         //traemos los datos con el id de manera automatica
         $categorias = Categoria::all();
-        return view('productos.edit', compact('producto', 'categorias'));
+        return view('productos.editar', compact('producto', 'categorias'));
     }
 
     /**
@@ -100,21 +100,26 @@ class ProductosController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
+        // Si el valor de 'id_categoria' es 'nuevo', quitamos la validación de que debe existir en la tabla.
+        $id_categoria_rule = $request->input('id_categoria') !== 'nuevo' ? 'nullable|exists:categorias,id_categoria' : 'nullable';
+
         //validamos
         $request->validate([
-            'nombre' => 'required',
-            'codigo' => 'required',
-            'color' => 'nullable',
-            'comensales' => 'nullable',
-            'medida' => 'nullable',
-            'stock' => 'required',
+            'nombre' => 'required|string',
+            'codigo' => 'required|numeric',
+            'color' => 'nullable|string',
+            'capacidad' => 'nullable|string',
+            'comensales' => 'nullable|numeric',
+            'medida' => 'nullable|string',
+            'stock' => 'required|numeric',
             'precio_unitario' => 'required',
-            'id_categoria' => 'nullable|exists:categorias,id_categoria', //validamos que exista la categoria
-            'nueva_categoria' => 'nullable|string',
+            'id_categoria' => $id_categoria_rule, // Solo validamos que exista si no es "nuevo"
+            'nueva_categoria' => 'nullable|string|required_if:id_categoria,nuevo',  // 'nueva_categoria' es obligatoria si 'id_categoria' es 'nuevo'
         ]);
         $validatedData = $request->all();
+
         //si hay un nuevo nombre de categoria, lo guardamos
-        if ($request->id_categoria === 'nuevo' && $validatedData['nueva_categoria']) {
+        if ($request->input('id_categoria') == 'nuevo') {
 
             $nuevaCategoria = Categoria::create([
                 'nombre' => $validatedData['nueva_categoria'],

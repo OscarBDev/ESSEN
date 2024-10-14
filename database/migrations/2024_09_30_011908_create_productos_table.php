@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nombre',30);
             $table->string('color',15)->nullable();
             $table->integer('comensales')->nullable();
+            $table->string('capacidad',5)->nullable();
             $table->string('medida',8)->nullable();
             $table->integer('stock')->default(0);
             $table->decimal('precio_unitario',10,2)->default(0.00);

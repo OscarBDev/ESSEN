@@ -46,6 +46,7 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="{{ route('roles.index') }}" class="btn btn-secondary">Cancelar</a>
 </form>
 <!-- fin del formulario -->
 
